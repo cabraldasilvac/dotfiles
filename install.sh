@@ -11,7 +11,7 @@ dotfiles() {
 }
 
 # URL do seu repositório (altere para o seu!)
-REPO_URL="https://github.com/seu-usuario/dotfiles.git"
+REPO_URL="https://github.com/cabraldasilvac/dotfiles.git"
 
 # Diretório de backup para arquivos locais que entrarem em conflito
 BACKUP_DIR="$HOME/.dotfiles-backup"
