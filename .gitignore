@@ -1,0 +1,5 @@
+# Ignore all logs
+logs/
+*.log
+**/logs/debug.logs
+.tmux/plugins/
