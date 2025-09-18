@@ -1,0 +1,170 @@
+# Configuração do Starship
+
+# Ordem dos módulos no prompt principal (uma linha só)
+format = """\
+$username$hostname\
+$directory\
+$git_branch$git_status$git_state$git_commit$git_metrics\
+$python$nodejs$java$php$lua\
+$docker_context$container$azure\
+$cmd_duration\
+\n$character"""
+
+# Adiciona uma nova linha entre os prompts do shell (recomendado TRUE para melhor visualização)
+add_newline = true
+
+# Timeout para comandos (em milissegundos)
+command_timeout = 10000
+
+# Timeout para verificação de arquivos no diretório atual (em milissegundos)
+scan_timeout = 10
+
+# Configurações do caractere de prompt
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red) "
+
+# Configurações do pacote
+[package]
+format = " via [🎁 $version](208 bold)"
+disabled = false
+
+# Configurações do nome de usuário
+[username]
+format = "[$user](bold white) "
+disabled = false
+show_always = false
+
+# Configurações do nome do host (somente SSH)
+[hostname]
+ssh_only = true
+format = "on [$hostname](bold yellow)"
+disabled = false
+
+# Configurações da duração do comando
+[cmd_duration]
+format = "underwent [$duration](bold yellow)"
+min_time = 500
+
+# Configurações do diretório
+[directory]
+format = "at [$path ](bold cyan)[$read_only](bold red)"
+truncation_length = 1
+truncation_symbol = "…/"
+home_symbol = "󰋜 ~ "
+read_only = "🔐"
+use_logical_path = true
+disabled = false
+
+# Configurações do branch Git
+[git_branch]
+symbol = " "
+format = " on [$symbol$branch (:$remote_branch)](bold purple)"
+truncation_length = 7
+truncation_symbol = "…/"
+only_attached = false
+disabled = false
+
+# Configurações do status Git
+[git_status]
+format = '([\( $all_status$ahead_behind\)]($style) )'
+style = 'bold cyan'
+conflicted = '[ conflito=${count}](red) '
+up_to_date = '[󰘽 atualizado](green) '
+untracked = '[󰋗 não rastreado=${count}](red) '
+modified = '[󰛿 modificado=${count}](yellow) '
+staged = '[󰐗 em stage=${count}](green) '
+renamed = '[󱍸 renomeado=${count}](yellow) '
+deleted = '[󰍶 excluído=${count}](red) '
+stashed = '[ armazenado=${count}](green) '
+ahead = '[⇡ à frente=${count}](cyan)'
+behind = '[⇣ atrás=${count}](red)'
+diverged = '[⇕ divergente: à frente=${ahead_count} atrás=${behind_count}](purple)'
+disabled = false
+
+# Métricas do Git
+[git_metrics]
+format = "([+$added](bold green))([-$deleted](bold red))"
+ignore_submodules = false
+disabled = false
+
+# Estado do Git
+[git_state]
+format = "([$state($progress_current/$progress_total)](bold yellow))"
+cherry_pick = "[🍒 PICKING](bold red)"
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+disabled = false
+
+# Commit Git
+[git_commit]
+format = "([$hash$tag](bold green))"
+commit_hash_length = 7
+tag_symbol = "🏷 "
+disabled = false
+
+# Python
+[python]
+format = " via [${symbol}${pyenv_prefix}(${version} )($virtualenv )](bold green)"
+symbol = "🐍 "
+pyenv_version_name = true
+python_binary = ["python", "python3", "python2"]
+disabled = false
+
+# Node.js
+[nodejs]
+format = " via [$symbol$version](bold green)"
+version_format = "v${raw}"
+symbol = " "
+detect_files = ["package.json", ".node-version", "!bunfig.toml", "!bun.lockb"]
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
+detect_folders = ["node_modules"]
+not_capable_style = "bold red"
+disabled = false
+
+# Java
+[java]
+format = " via [${symbol}${version}](red dimmed)"
+detect_extensions = ["java", "class", "gradle", "jar", "cljs", "cljc"]
+detect_files = ["pom.xml", "build.gradle.kts", "build.sbt", ".java-version", "deps.edn", "project.clj", "build.boot", ".sdkmanrc"]
+symbol = "☕ "
+disabled = false
+
+# Lua
+[lua]
+format = " via [$symbol$version](bold blue)"
+version_format = "v${raw}"
+symbol = "🌙 "
+detect_extensions = ["lua"]
+detect_files = [".lua-version"]
+detect_folders = ["lua"]
+lua_binary = "lua"
+
+# PHP
+[php]
+format = " via [🔹 $version](147 bold)"
+version_format = "v${raw}"
+symbol = "🐘 "
+detect_extensions = ["php"]
+
+# Azure
+[azure]
+format = " on [$symbol$subscription$username](blue bold)"
+symbol = "󰠅 "
+disabled = false
+
+# Container
+[container]
+format = "[$symbol [$name]](red bold dimmed)"
+symbol = "⬢"
+disabled = false
+
+# Docker Context
+[docker_context]
+format = " via [$symbol$context](blue bold)"
+symbol = "🐋 "
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yml", "Dockerfile"]
+disabled = false
+

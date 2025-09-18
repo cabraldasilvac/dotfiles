@@ -1,0 +1,73 @@
+# 
+# Git configuration
+#
+[user]
+	name = WANDERLEY CABRAL
+	email = 39313251+cabraldasilvac@users.noreply.github.com
+
+[init]
+  defaultBranch = main
+
+[credential]
+  helper = store
+
+[core]
+  editor = nvim --wait
+  pager = delta
+  autocrlf = input
+	excludesfile = /Users/wanderleycabral/.gitignore_global
+  autocrlf = input  
+
+[color]
+  ui = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
+  dark = true
+  # light = true
+  line-numbers = true
+  syntax-theme = GitHub
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
+
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+  stat = true
+
+[alias]
+  last = "log -1 HEAD"
+  #lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  undo = "reset HEAD~1 --soft"
+  amend = "commit --amend --no-edit"
+
+[log]
+  date = relative
+  decorate = short 
+
+[push]
+  default = current  
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[commit]
+	template = /Users/wanderleycabral/.stCommitMsg
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+
+# End
