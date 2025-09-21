@@ -1,0 +1,66 @@
+
+[env]
+TERM = "xterm-256color"
+
+[cursor]
+blink_interval = 500
+
+    [cursor.style]
+    shape = "Block"
+    blinking = "Always"
+
+[window]
+decorations = "Buttonless"
+opacity = 0.9
+blur = true
+#option_as_alt = "Both"
+dynamic_title = true
+dynamic_padding = true
+decorations_theme_variant = "Dark"
+title ="Alacritty@Cabral"
+
+    [window.class]
+    general = "Alacritty"
+    instance = "Alacritty"
+
+    [window.dimensions]
+    columns = 120
+    lines = 30
+
+    [window.padding]
+    x = 10
+    y = 10
+
+[font]
+size = 18.0
+
+    [font.normal]
+    family = "MesloLGS Nerd Font Mono"
+    style = "Regular"
+
+    [font.bold]
+    family = "MesloLGS Nerd Font Mono"
+    style = "Bold"
+
+    [font.italic]
+    family = "MesloLGS Nerd Font Mono"
+    style = "Italic"  
+    
+    [font.bold_italic]
+    family = "MesloLGS Nerd Font Mono"
+    style = "Bold Italic"
+
+[selection]
+save_to_clipboard = true
+
+[general]
+live_config_reload = true
+
+import = [
+  "~/dotfiles/alacritty/themes/themes/coolnight.toml"
+]
+
+[terminal]
+shell = "/bin/zsh"
+
+# End
