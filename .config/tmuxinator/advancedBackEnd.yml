@@ -1,0 +1,16 @@
+name: Advanced-BackEnd
+root: ~/Development/projects/advanced-BackEnd
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim .
+  - backend:
+      layout: main-horizontal
+      panes:
+        - cd ~/Development/projects/advanced-BackEnd/lgpd-backend/
+  - frontend:
+      layout: main-horizontal
+      panes:
+        - cd ~/Development/projects/advanced-BackEnd/lgpd-frontend/

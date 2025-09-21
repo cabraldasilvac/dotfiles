@@ -1,0 +1,16 @@
+name: hero
+root: ~/Development/projects/pos-graduacao/Modulo_3/pratica-disciplina-BackEnd-FrontEnd/Intermediary-BackEnd/HERO-CLOUD-PROJETO/
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim .
+  - backend:
+      layout: main-horizontal
+      panes:
+        - node index.js
+  - frontend:
+      layout: main-horizontal
+      panes:
+        - ng serve

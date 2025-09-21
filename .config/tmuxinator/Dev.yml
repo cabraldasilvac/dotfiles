@@ -1,0 +1,18 @@
+# /Users/wanderleycabral/.config/tmuxinator/Dev.yml
+
+name: Dev
+root: ~/Development/projects/
+
+windows:
+  - Development:
+      layout: 9244,149x39,0,0{90x39,0,0,0,58x39,91,0[58x20,91,0,1,58x18,91,21,2]}
+      panes:
+        - terminal:
+            - nvim .
+        - vpn:
+            - cd  ~/vpn/
+            - clear
+        - server:
+            - cd ~/Development/projects/
+            - clear
+            - ls 

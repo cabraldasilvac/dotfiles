@@ -1,0 +1,16 @@
+name: projects
+root: ~/Development/projects/
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim .
+  - servidor:
+      layout: main-horizontal
+      panes:
+        - npm start
+  - navegador:
+      layout: main-horizontal
+      panes:
+        - open http://localhost:3000
