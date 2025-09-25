@@ -1,13 +1,23 @@
+#
+# --------------------------------------------------------
 # My Aliases 
 # --------------------------------------------------------
- alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#
 # Aliases
+ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
  alias cat=$(command -v 'batcat' || command -v 'bat')
  alias copy='rsync -a --stats --progress'
  alias vim=nvim
  alias please='sudo'
  alias pa='php artisan'
  alias nf="neofetch_info"
+
+# Show/hide hidden files in Finder
+ alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Print each PATH entry on a separate line
+ alias path='echo -e ${PATH//:/\\n}'
 
 # git specific
  alias gs="git status"
