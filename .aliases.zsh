@@ -1,6 +1,6 @@
 #
 # --------------------------------------------------------
-# My Aliases 
+# My Aliases
 # --------------------------------------------------------
 #
 # Aliases
@@ -11,6 +11,7 @@
  alias please='sudo'
  alias pa='php artisan'
  alias nf="neofetch_info"
+ alias tn="tmux new-session -A -s Main"
 
 # Show/hide hidden files in Finder
  alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
