@@ -1,4 +1,4 @@
-# 
+#
 # Git configuration
 #
 [user]
@@ -6,59 +6,57 @@
 	email = 39313251+cabraldasilvac@users.noreply.github.com
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [credential]
-  helper = store
+	helper = store
 
 [core]
-  editor = nvim --wait
-  pager = delta
-  autocrlf = input
+	editor = nvim
+	pager = delta
+	autocrlf = input
 	excludesfile = /Users/wanderleycabral/.gitignore_global
-  autocrlf = input  
 
 [color]
-  ui = true
+	ui = true
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-  navigate = true
-  side-by-side = true
-  dark = true
-  # light = true
-  line-numbers = true
-  syntax-theme = GitHub
-  plus-style = syntax "#003800"
-  minus-style = syntax "#3f0001"
+	navigate = true
+	side-by-side = true
+	dark = true
+	# light = true
+	line-numbers = true
+	syntax-theme = GitHub
+	plus-style = syntax "#003800"
+	minus-style = syntax "#3f0001"
 
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
-  stat = true
+	tool = vimdiff
+	conflictstyle = diff3
+	stat = true
 
 [alias]
-  last = "log -1 HEAD"
-  #lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-  undo = "reset HEAD~1 --soft"
-  amend = "commit --amend --no-edit"
+	last = log -1 HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	undo = reset HEAD~1 --soft
+	amend = commit --amend --no-edit
+	st = "!clear; git status -sb"
+	co = checkout
+	br = branch
+	ci = commit
+	ca = commit -a
+	unstage = reset HEAD --
+	prune = remote prune origin
 
 [log]
-  date = relative
-  decorate = short 
+	date = relative
+	decorate = short
 
 [push]
-  default = current  
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	default = current
 
 [commit]
 	template = /Users/wanderleycabral/.stCommitMsg
@@ -69,5 +67,12 @@
 	required = true
 	clean = git-lfs clean -- %f
 
+[difftool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\"
 
-# End
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+#
+#
+# ---- End ----
