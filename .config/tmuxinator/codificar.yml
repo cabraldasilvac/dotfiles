@@ -10,7 +10,7 @@ windows:
         - terminal:
             - nvim .
         - code:
-            - cd  ~/www/codificar/oficina-2.0/
+            - cd  ~/www/codificar/
             - clear
             - eza -l --grid --icons
         - server:
