@@ -3,7 +3,7 @@
 # My Aliases
 # --------------------------------------------------------
 #
-# Aliases
+# Aliases General
  alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
  alias cat=$(command -v 'batcat' || command -v 'bat')
  alias copy='rsync -a --stats --progress'
@@ -12,6 +12,11 @@
  alias pa='php artisan'
  alias nf="neofetch_info"
  alias tn="tmux new-session -A -s Main"
+ alias zshrc="nvim ~/.zshrc"
+ alias gotoalias="nvim ~/.aliases.zsh"
+ alias gotoalacritty="nvim ~/.config/alacritty/alacritty.toml"
+ alias cls="clear"
+ alias weather="curl http://wttr.in/"
 
 # Show/hide hidden files in Finder
  alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -48,5 +53,10 @@
  alias python="python3"
 #alias python=/usr/local/bin/python3.7
 #alias python=/usr/local/bin/python3.10
-#
-#
+
+### Creating and entering directories
+ function take {
+   mkdir -p $1
+   cd $1
+ }
+
