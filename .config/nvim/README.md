@@ -20,8 +20,8 @@
 - [x] dressing.nvim
 - [x] conform.nvim
 - [X] blink-cmp
-- [] Mason
+- [X] Mason
+- [x] Render-markdown
 - [] Basic options
 - [] editorconf
-
 
