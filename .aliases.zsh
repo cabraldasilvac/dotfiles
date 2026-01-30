@@ -12,7 +12,8 @@
  alias pa='php artisan'
  alias nf="neofetch_info"
  alias tn="tmux new-session -A -s Main"
- alias zshrc="nvim ~/.zshrc"
+ alias gotozshrc="nvim ~/.zshrc"
+ alias reload-zsh="source ~/.zshrc"
  alias gotoalias="nvim ~/.aliases.zsh"
  alias gotoalacritty="nvim ~/.config/alacritty/alacritty.toml"
  alias cls="clear"
@@ -54,9 +55,50 @@
 #alias python=/usr/local/bin/python3.7
 #alias python=/usr/local/bin/python3.10
 
-### Creating and entering directories
+# Functions
+## Creating and entering directories
  function take {
    mkdir -p $1
    cd $1
  }
 
+## Show a directory listing when using 'cd'
+function cd() {
+	# if no arguments are passed, it goes to HOME
+	builtin cd "${1:-$HOME}" || return
+	# Checks if we are on MacOS or Linux to use the right flags
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		# macOS/BSD
+		ls -G -lhF
+	else
+		# Linux/GNU
+		ls -lhF --color=auto --time-style=long-iso --ignore=lost+found
+	fi
+}
+
+## extract
+function extract () {
+  if [ -f "$1" ] ; then
+    case "$1" in
+      *.tar.bz2)   tar xvjf "$1"    ;;
+      *.tar.gz)    tar xvzf "$1"    ;;
+      *.tar.xz)    tar xvf "$1"     ;;
+      *.bz2)       bzip2 -d "$1"    ;;
+      *.rar)       unrar x "$1"     ;;
+      *.gz)        gunzip "$1"      ;;
+      *.tar)       tar xf "$1"      ;;
+      *.tbz2)      tar xjf "$1"     ;;
+      *.tgz)       tar xzf "$1"     ;;
+      *.zip)       unzip "$1"       ;;
+      *.Z)         uncompress "$1"  ;;
+      *.7z)        7z x "$1"        ;;
+      *.ace)       unace x "$1"     ;;
+      *)           echo "'$1' não pode ser extraído via extract()" ;;
+    esac
+  else
+    echo "'$1' não é um arquivo válido"
+  fi
+}
+
+# ---- Eza (better ls) -----
+alias ls="eza -l --icons=always"
