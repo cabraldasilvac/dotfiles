@@ -2,6 +2,7 @@
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/mysql/bin:/Users/wanderleycabral/.config/herd-lite/bin:/Users/wanderleycabral/Library/Application Support/Herd/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/wanderleycabral/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 export HERD_PHP_83_INI_SCAN_DIR="/Users/wanderleycabral/Library/Application Support/Herd/config/php/83/"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Configurações do FZF
 fg="#CBE0F0"
