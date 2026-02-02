@@ -23,5 +23,5 @@
 - [X] Mason
 - [x] Render-markdown
 - [] Basic options
-- [] editorconf
+- [x] Editorconf
 

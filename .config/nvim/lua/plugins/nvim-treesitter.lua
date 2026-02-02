@@ -17,6 +17,7 @@ return {
                 "html",
                 "markdown",
                 "markdown_inline",
+                "rust",
             },
             auto_install = true,
             sync_install = false,
