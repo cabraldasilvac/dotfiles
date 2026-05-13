@@ -19,6 +19,9 @@
  alias cls="clear"
  alias weather="curl http://wttr.in/"
 
+# ---- Eza (better ls) -----
+alias ls="eza -l --icons=always"
+
 # Show/hide hidden files in Finder
  alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
  alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -99,6 +102,3 @@ function extract () {
     echo "'$1' não é um arquivo válido"
   fi
 }
-
-# ---- Eza (better ls) -----
-alias ls="eza -l --icons=always"
