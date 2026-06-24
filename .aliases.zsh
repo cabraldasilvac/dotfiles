@@ -12,8 +12,8 @@
  alias pa='php artisan'
  alias nf="neofetch_info"
  alias tn="tmux new-session -A -s Main"
- alias gotozshrc="nvim ~/.zshrc"
  alias reload-zsh="source ~/.zshrc"
+ alias gotozshrc="nvim ~/.zshrc"
  alias gotoalias="nvim ~/.aliases.zsh"
  alias gotoalacritty="nvim ~/.config/alacritty/alacritty.toml"
  alias cls="clear"
@@ -21,6 +21,15 @@
 
 # ---- Eza (better ls) -----
 alias ls="eza -l --icons=always"
+#  Detailed listing
+alias ll='eza -lh --icons --git'
+#  Detailed listing including hidden files
+alias la='eza -lah --icons --git'
+#  Tree view
+alias tree='eza --tree --icons'
+
+# Reuse ls completions for eza(avoids defining a separate competion function
+compdef eza=ls
 
 # Show/hide hidden files in Finder
  alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -38,6 +47,11 @@ alias ls="eza -l --icons=always"
  alias gp="git pull"
  alias gd="git diff"
  alias gpush="git push $1 $2"
+
+# ---- Core Utilities -----
+alias grep='rg --color=auto'
+alias diff='diff --color=auto'
+alias df='df -h'
 
 # Docker specific
  alias dclean_containers="cleanup_docker_containers"
@@ -58,7 +72,8 @@ alias ls="eza -l --icons=always"
 #alias python=/usr/local/bin/python3.7
 #alias python=/usr/local/bin/python3.10
 
-# Functions
+# ---- Functions -----
+#
 ## Creating and entering directories
  function take {
    mkdir -p $1
