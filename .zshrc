@@ -1,10 +1,10 @@
 # ==============================
-# 1. CARREGAMENTO DE VARIÁVEIS DE AMBIENTE
+# 1. LOADING ENVIRONMENT VARIABLES
 # ==============================
 [[ -f ~/.env.zsh ]] && source ~/.env.zsh
 
 # ==============================
-# 2. CONFIGURAÇÕES BÁSICAS
+# 2. BASIC SETTINGS
 # ==============================
 export EDITOR="${SSH_CONNECTION:+vim}"
 export EDITOR="${EDITOR:-mvim}"
@@ -42,7 +42,7 @@ plugins=(
 [[ -f $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
 
 # ==============================
-# 5. ZINIT (Gerenciador de Plugins)
+# 5. ZINIT (PLUGIN MANAGER)
 # ==============================
 ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
 if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
@@ -83,15 +83,15 @@ if command -v ng &>/dev/null; then
 fi
 
 # ==============================
-# 9. CARREGAMENTO DE ALIASES E FUNÇÕES
+# 9. LOADING ALIASES AND FUNCTIONS
 # ==============================
 [[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f ~/.docker_functions.zsh ]] && source ~/.docker_functions.zsh
 
 # ==============================
-# 10. FUNÇÕES ÚTEIS
+# 10. USEFUL FUNCTIONS
 # ==============================
-facu() { cd ~/Development/projects/pos-graduacao; }
+facu() { cd ~/Development/projects; }
 pwdcp() { pwd | tr -d '\n' | pbcopy; }
 
 neofetch_info() { command -v neofetch &>/dev/null && neofetch || echo "neofetch não encontrado."; }
@@ -145,7 +145,6 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
-
 # ==============================
-# Fim da configuração
+# END OF CONFIGURATIONS        #
 # ==============================
