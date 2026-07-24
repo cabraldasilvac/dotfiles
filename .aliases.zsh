@@ -71,8 +71,53 @@ alias df='df -h'
  alias python="python3"
 #alias python=/usr/local/bin/python3.7
 #alias python=/usr/local/bin/python3.10
+#
 
 # ---- Functions -----
+#
+function rede {
+python3 -c '
+import subprocess, re
+def run(cmd):
+    try: return subprocess.check_output(cmd, shell=True, text=True).strip()
+    except: return None
+ifconfig_en0 = run("ifconfig en0")
+gw_raw = run("route -n get default")
+dns_raw = run("scutil --dns | grep nameserver | awk \"{print $3}\"")
+
+ipv4 = "Desconectado"
+netmask = "Desconectado"
+if ifconfig_en0:
+    ip_match = re.search(r"inet\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", ifconfig_en0)
+    mask_match = re.search(r"netmask\s+0x([0-9a-fA-F]{8})", ifconfig_en0)
+    if ip_match: ipv4 = ip_match.group(1)
+    if mask_match:
+        hex_mask = mask_match.group(1)
+        netmask = ".".join(str(int(hex_mask[i:i+2], 16)) for i in (0, 2, 4, 6))
+
+ipv6 = "Não configurado"
+if ifconfig_en0:
+    ipv6_match = re.search(r"inet6\s+(fe80::[0-9a-fA-F:]+)", ifconfig_en0)
+    if ipv6_match: ipv6 = ipv6_match.group(1)
+
+gateway = "Não encontrado"
+if gw_raw:
+    gw_match = re.search(r"gateway:\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", gw_raw)
+    if gw_match: gateway = gw_match.group(1)
+
+dns_list = list(dict.fromkeys(dns_raw.splitlines())) if dns_raw else []
+dns_pref = dns_list[0] if len(dns_list) > 0 else "Não configurado"
+dns_alt = dns_list[1] if len(dns_list) > 1 else "Não configurado"
+
+print(f"End IPv6 de link local: {ipv6}")
+print(f"End IPv4:                {ipv4}")
+print(f"Mascara de Sub-rede:     {netmask}")
+print(f"Gateway Padrão:          {gateway}")
+print(f"DNS Preferencial:        {dns_pref}")
+print(f"DNS Alternativo:         {dns_alt}")
+'
+}
+
 #
 ## Creating and entering directories
  function take {
