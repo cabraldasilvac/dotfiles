@@ -84,6 +84,7 @@ def run(cmd):
 ifconfig_en0 = run("ifconfig en0")
 gw_raw = run("route -n get default")
 dns_raw = run("scutil --dns | grep nameserver | awk \"{print $3}\"")
+wifi_raw = run("networksetup -getairportnetwork en0")
 
 ipv4 = "Desconectado"
 netmask = "Desconectado"
@@ -105,10 +106,15 @@ if gw_raw:
     gw_match = re.search(r"gateway:\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", gw_raw)
     if gw_match: gateway = gw_match.group(1)
 
+wifi = "Não conectado"
+if wifi_raw and ": " in wifi_raw:
+    wifi = wifi_raw.split(": ")[1]
+
 dns_list = list(dict.fromkeys(dns_raw.splitlines())) if dns_raw else []
 dns_pref = dns_list[0] if len(dns_list) > 0 else "Não configurado"
 dns_alt = dns_list[1] if len(dns_list) > 1 else "Não configurado"
 
+print(f"Nome da rede Wi-Fi:   {wifi}")
 print(f"End IPv6 de link local: {ipv6}")
 print(f"End IPv4:                {ipv4}")
 print(f"Mascara de Sub-rede:     {netmask}")
@@ -117,6 +123,7 @@ print(f"DNS Preferencial:        {dns_pref}")
 print(f"DNS Alternativo:         {dns_alt}")
 '
 }
+
 
 #
 ## Creating and entering directories
