@@ -12,7 +12,7 @@
  alias pa='php artisan'
  alias nf="neofetch_info"
  alias tn="tmux new-session -A -s Main"
- alias reload-zsh="source ~/.zshrc"
+ alias reloadzsh="source ~/.zshrc"
  alias gotozshrc="nvim ~/.zshrc"
  alias gotoalias="nvim ~/.aliases.zsh"
  alias gotoalacritty="nvim ~/.config/alacritty/alacritty.toml"
